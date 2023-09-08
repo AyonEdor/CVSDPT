@@ -1,0 +1,174 @@
+body {
+    --s: 25vmin;
+    --p: calc(var(--s) / 2);
+    --c1: rgb(93, 193, 185);
+    --c2: gray;
+    --c3: white;
+    --bg: var(--c3);
+    --d: 4000ms;
+    --e: cubic-bezier(0.76, 0, 0.24, 1);
+    
+    background-color: var(--bg);
+    background-image:
+      linear-gradient(45deg, var(--c1) 25%, transparent 25%),
+      linear-gradient(-45deg, var(--c1) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, var(--c2) 75%),
+      linear-gradient(-45deg, transparent 75%, var(--c2) 75%);
+    background-size: var(--s) var(--s);
+    background-position: 
+      calc(var(--p) *  1) calc(var(--p) *  0), 
+      calc(var(--p) * -1) calc(var(--p) *  1), 
+      calc(var(--p) *  1) calc(var(--p) * -1), 
+      calc(var(--p) * -1) calc(var(--p) *  0);
+    animation: 
+      color var(--d) var(--e) infinite,
+      position var(--d) var(--e) infinite;
+      
+  }
+  
+  @keyframes color {
+    0%, 25% {
+      --bg: var(--c3);
+    }
+    26%, 50% {
+      --bg: var(--c1);
+    }
+    51%, 75% {
+      --bg: var(--c3);
+    }
+    76%, 100% {
+      --bg: var(--c2);
+    }
+  }
+  
+  @keyframes position {
+    0% {
+      background-position: 
+        calc(var(--p) *  1) calc(var(--p) *  0), 
+        calc(var(--p) * -1) calc(var(--p) *  1), 
+        calc(var(--p) *  1) calc(var(--p) * -1), 
+        calc(var(--p) * -1) calc(var(--p) *  0);
+    }
+    25% {
+      background-position: 
+        calc(var(--p) *  1) calc(var(--p) *  4), 
+        calc(var(--p) * -1) calc(var(--p) *  5), 
+        calc(var(--p) *  1) calc(var(--p) *  3), 
+        calc(var(--p) * -1) calc(var(--p) *  4);
+    }
+    50% {
+      background-position: 
+        calc(var(--p) *  3) calc(var(--p) * 8), 
+        calc(var(--p) * -3) calc(var(--p) * 9), 
+        calc(var(--p) *  2) calc(var(--p) * 7), 
+        calc(var(--p) * -2) calc(var(--p) * 8);
+    }
+    75% {
+      background-position: 
+        calc(var(--p) *  3) calc(var(--p) * 12), 
+        calc(var(--p) * -3) calc(var(--p) * 13), 
+        calc(var(--p) *  2) calc(var(--p) * 11), 
+        calc(var(--p) * -2) calc(var(--p) * 12);
+    }
+    100% {    
+      background-position: 
+        calc(var(--p) *  5) calc(var(--p) * 16), 
+        calc(var(--p) * -5) calc(var(--p) * 17), 
+        calc(var(--p) *  5) calc(var(--p) * 15), 
+        calc(var(--p) * -5) calc(var(--p) * 16);
+    }
+  }
+  
+  @media (prefers-reduced-motion) {
+    body {
+      animation: none;
+    }
+  }
+
+  #test {
+    border-radius: 30px;
+  }
+
+/* ------ */
+
+
+  * {
+	margin: 0;
+	padding: 0;
+}
+
+
+.fly-in-text {
+	list-style: none;
+	position: relative;
+	left: 50%;
+	top: 50%;
+	transform: translateX(-50%) translateY(-50%);
+}
+
+.fly-in-text li {
+	display: inline-block;
+	margin-right:10px;
+	font-family: Open Sans, Arial;
+	font-weight: 300;
+	font-size: 4em;
+	opacity: 1;
+	transition: all 2.5s ease;
+}
+
+@media screen and (max-width: 1275px) {
+    .fly-in-text li {
+		margin-right:30px;
+		font-weight: 300;
+		font-size: 3em;
+	}
+}
+
+@media screen and (max-width: 900px) {
+    .fly-in-text li {	
+    	display: block;
+		margin-right:20px;
+		font-weight: 300;
+		font-size: 3em;
+	}
+}
+
+@media screen and (max-width: 768px) {
+    .fly-in-text li {	
+    	display: block;
+		margin-right:20px;
+		font-weight: 300;
+		font-size: 3em;
+		text-align: center;
+        margin: 0 auto;
+}
+	}
+.fly-in-text li:last-child {
+	margin-right: 0;
+}
+
+.fly-in-text.hidden li {
+	opacity: 0;
+} 
+
+.fly-in-text.hidden li:nth-child(1) {
+	transform: translateX(-200px) translateY(-200px);
+}
+.fly-in-text.hidden li:nth-child(2) {
+	transform: translateX(20px) translateY(100px);
+}
+.fly-in-text.hidden li:nth-child(3) {
+	transform: translateX(-150px) translateY(-80px);
+}
+.fly-in-text.hidden li:nth-child(4) {
+	transform: translateX(10px) translateY(-200px);
+}
+.fly-in-text.hidden li:nth-child(5) {
+	transform: translateX(-300px) translateY(200px);
+}
+.fly-in-text.hidden li:nth-child(6) {
+	transform: translateX(80px) translateY(-20px);
+}
+.fly-in-text.hidden li:nth-child(4) {
+	transform: translateX(30px) translateY(200px);
+}
